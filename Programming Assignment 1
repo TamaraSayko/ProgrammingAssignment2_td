@@ -1,0 +1,20 @@
+Programming Assignment 1
+complete  <-  function ( directory , id = 1 : 332 ) {
+  df  =  data.frame (integer (), integer ()) # # установить пустой фрейм данных
+  for ( i  in  id ) {
+    if ( i < 10 ) {
+      j = paste ( " 00 " , as.character ( i ), " .csv " , sep = " " )
+    } else  if ( i < 100 ) {
+      j = paste ( " 0 " , as.character ( i ), " .csv " , sep = " " )
+    } else {
+      j = вставить (as.character ( i ), " .csv " , sep = " " )
+    }
+    fname  = paste ( каталог , j , sep = " / " )
+    f = read.csv ( fname ) # # читать файл i.csv
+    a = is.na ( f $ su ) # # NA sul значение
+    b = is.na ( f $ ni ) # # NA ni значение
+    n = sum (( ! a ) * ( ! b ))   # # количество полных наблюдений
+    df = rbind ( df , c ( i , n ))
+  }
+  colnames ( df ) = c ( " идентификатор " , " nobs " )
+  df
